@@ -12,7 +12,7 @@ i18n
   // модуль инициализации
   .use (initReactI18next)
   .init({
-    fallbackLng: "ru",
+    fallbackLng: "en",
     whitelist:["ru", "en", "ky"],
     debug:true,
     detection: {

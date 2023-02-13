@@ -14,7 +14,9 @@
   <link href="assets/img/favicon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -26,6 +28,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/js/index.js">
 </head>
 
 <body>
@@ -50,39 +53,70 @@
   <section id="hero" class="d-flex flex-column justify-content-center">
     <div class="container" data-aos="zoom-in" data-aos-delay="100">
       <div>
-        <div class="row">
+        <div class="nav-wrapper">
+          <div class="sl-nav">
+            <a class="nav-link lang" href="?lng=en" translated>EN  /  </a> 
+                  <a class="nav-link lang" href="?lng=ru" translated>RU</a>
+          </div>
           <div class="col-lg-4">
             <a class="navbar-brand" href="#">
               <img src="./assets/img/logo-white.png" alt="" width="600hv" height="150hv" class="img-responsive">
-          </a>
+            </a>
           </div>
         </div>
-       
+
+        <div class="row">
+          
+        </div>
+
       </div>
       <h1><span class="typed" data-typed-items="EXPERTISE TRUST SUSTAINABILITY"></span></h1>
-
-      <!-- <div class="social-links">
-        <a href="#" class="linkedin"><i class="bx bxl-whatsapp"></i></a>
-      </div> -->
+      <button class="btn">Get consultation</button>
     </div>
   </section><!-- End Hero -->
 
   <main id="main">
 
     <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+    <section id="about" class="about align-items-stretch">
       <div class="container" data-aos="fade-up">
-        <div class="section-title">
+        <div class="section-title py-2">
           <h2>About us</h2>
 
-          <div class="row">
-          <p>We are committed to continual improvement of our competences to empower every Partner to achieve more. We listen to our Partners and deliver services that create a live management system.</p>
-          <p class="py-1"> <strong>Goal № 1 - Raising awareness on food systems governance <br>
-            Goal № 2 - Assistance in achieving the stated goals of our clients <br>
-            Goal № 3 - Team expansion and young specialists attraction</strong> </p>
+          <div class="row mx-auto text-muted">
+            <p>AD Trading & Consulting LLC (Multisystems) was founded in 2016 and provides consultancy services in food safety management systems. More precisely, we assist food processing companies to implement and to maintain a live food safety management system based on the requirements set forth in ISO 22000 and FSSC 22000.</p>
+            <p>Multisystems develops, implements and maintains live management systems in various industries.</p>
+            <p>Our main area of expertise is focused in food systems and our portfolio includes a wide a range of operators in the food chain, in total we have strong business relationship with about 25 food business operators in Kyrgyzstan.</p>
+            <p>We advise, train and support our clients every day.</p>
+            <p>We are committed to continual improvement of our competences to empower every Partner to achieve more.</p>
+            <p>We listen to our Partners and deliver services that create a live management system.</p>
+            <!-- <p class="py-1"> <strong> Goal № 1 - Raising awareness on food systems governance<br>
+                Goal № 2 - Assistance in achieving the stated goals of our clients <br>
+                Goal № 3 - Team expansion and young specialists attraction</strong> </p> -->
+          </div>
         </div>
 
-      </div>
+        <div class='container team col data-aos="fade-up"'>
+          <!-- <div class="header">
+              <div class="title text-center">Our Expert Team</div>
+          </div> -->
+          <div class="row justify-content-center">
+              <div class="card col-md-8 mt-100">
+                  <div class="card-content">
+                      <div class="card-body p-0">
+                          <div class="profile text-center"> <img src="/assets/img/ceo-photo.jpg"> </div>
+                          <div class="card-title mt-4 text-center"> Almaz Davletov <br /> <small>Founder and CEO of Multisystems</small> </div>
+                          <div class="card-subtitle">
+                              <p> <small class="text-muted">Wageningen University & Research MSc Food Safety, Food Law and Regulatory Affairs <b>2019 - 2021</b></small> </p>
+                              <p> <small class="text-muted">FSSC 22000/ISO 22000:2018, Course of Auditor/Lead Auditor of Food Safety Management Systems</small> </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>                            
+      
+        
     </section><!-- End About Section -->
 
     <!-- ======= Portfolio Section ======= -->
@@ -91,88 +125,104 @@
 
         <div class="section-title">
           <h2>SERVICES</h2>
-          <p>Multisystems develops food quality and safety programs to comply with global and regional food quality and safety schemes. We work across all sectors in the food chain.</p>
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="col-lg-4 col-md-6  align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-              <div class="icon-box iconbox-pink">
-                <div class="icon">
-                  <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
-                  </svg>
-                  <i class="bx bx-tachometer"></i>
-                </div>
-                <h4><a href="">FOOD QUALITY & SAFETY</a></h4>
-                <a href="portfolio-detail.html" data-gallery="portfolioGallery" class="portfolio-lightbox" ><i class="bx bx-plus"></i></a>
+          <div class="col-lg-4 col-md-6  align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box iconbox-pink">
+              <div class="icon">
+                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke="none" stroke-width="0" fill="#f5f5f5"
+                    d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174">
+                  </path>
+                </svg>
+                <i class="bx bx-tachometer"></i>
               </div>
+              <h4><a href="">FOOD QUALITY & SAFETY</a></h4>
+              <a href="portfolio-detail.html" data-gallery="portfolioGallery" class="portfolio-lightbox"><i
+                  class="bx bx-plus"></i></a>
             </div>
+          </div>
 
-            <div class="col-lg-4 col-md-6  align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-              <div class="icon-box iconbox-pink">
-                <div class="icon">
-                  <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
-                  </svg>
-                  <i class="bx bx-file"></i>
-                </div>
-                <h4><a href="">FOOD REGULATORY AFFAIRES</a></h4>
-                <a href="portfolio-detail2.html" data-gallery="portfolioGallery" class="portfolio-lightbox" ><i class="bx bx-plus"></i></a>
+          <div class="col-lg-4 col-md-6  align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box iconbox-pink">
+              <div class="icon">
+                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke="none" stroke-width="0" fill="#f5f5f5"
+                    d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174">
+                  </path>
+                </svg>
+                <i class="bx bx-file"></i>
               </div>
+              <h4><a href="">FOOD REGULATORY AFFAIRES</a></h4>
+              <a href="portfolio-detail2.html" data-gallery="portfolioGallery" class="portfolio-lightbox"><i
+                  class="bx bx-plus"></i></a>
             </div>
+          </div>
 
-            <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-              <div class="icon-box iconbox-pink">
-                <div class="icon">
-                  <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
-                  </svg>
-                  <i class="bx bx-world"></i>
-                </div>
-                <h4><a href="">GOOD DISTRIBUTION PRACTICES IN PHARMACEUTICAL INDUSTRY</a></h4>
-                <a href="portfolio-detail3.html" data-gallery="portfolioGallery" class="portfolio-lightbox" ><i class="bx bx-plus"></i></a>
+          <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box iconbox-pink">
+              <div class="icon">
+                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke="none" stroke-width="0" fill="#f5f5f5"
+                    d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174">
+                  </path>
+                </svg>
+                <i class="bx bx-world"></i>
               </div>
+              <h4><a href="">GOOD DISTRIBUTION PRACTICES IN PHARMACEUTICAL INDUSTRY</a></h4>
+              <a href="portfolio-detail3.html" data-gallery="portfolioGallery" class="portfolio-lightbox"><i
+                  class="bx bx-plus"></i></a>
             </div>
+          </div>
 
-            <div class="col-lg-4 col-md-6  align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-              <div class="icon-box iconbox-pink">
-                <div class="icon">
-                  <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
-                  </svg>
-                  <i class="bx bx-user"></i>
-                </div>
-                <h4><a href="">INTERIM QUALITY EMPLOYEE</a></h4>
-                <a href="portfolio-detail4.html" data-gallery="portfolioGallery" class="portfolio-lightbox" ><i class="bx bx-plus"></i></a>
+          <div class="col-lg-4 col-md-6  align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box iconbox-pink">
+              <div class="icon">
+                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke="none" stroke-width="0" fill="#f5f5f5"
+                    d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174">
+                  </path>
+                </svg>
+                <i class="bx bx-user"></i>
               </div>
+              <h4><a href="">INTERIM QUALITY EMPLOYEE</a></h4>
+              <a href="portfolio-detail4.html" data-gallery="portfolioGallery" class="portfolio-lightbox"><i
+                  class="bx bx-plus"></i></a>
             </div>
+          </div>
 
-            <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-              <div class="icon-box iconbox-pink">
-                <div class="icon">
-                  <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
-                  </svg>
-                  <i class="bx bx-slideshow"></i>
-                </div>
-                <h4><a href="">MANAGEMENT SYSTEMS</a></h4>
-                <a href="portfolio-detail5.html" data-gallery="portfolioGallery" class="portfolio-lightbox" ><i class="bx bx-plus"></i></a>
+          <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box iconbox-pink">
+              <div class="icon">
+                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke="none" stroke-width="0" fill="#f5f5f5"
+                    d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174">
+                  </path>
+                </svg>
+                <i class="bx bx-slideshow"></i>
               </div>
+              <h4><a href="">MANAGEMENT SYSTEMS</a></h4>
+              <a href="portfolio-detail5.html" data-gallery="portfolioGallery" class="portfolio-lightbox"><i
+                  class="bx bx-plus"></i></a>
             </div>
+          </div>
 
-            <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-              <div class="icon-box iconbox-pink ">
-                <div class="icon">
-                  <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
-                  </svg>
-                  <i class="bx bx-layer"></i>
-                </div>
-                <h4><a href="">TRAININGS</a></h4>
-                <a href="portfolio-detail6.html" data-gallery="portfolioGallery" class="portfolio-lightbox" ><i class="bx bx-plus"></i></a>
+          <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box iconbox-pink ">
+              <div class="icon">
+                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke="none" stroke-width="0" fill="#f5f5f5"
+                    d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174">
+                  </path>
+                </svg>
+                <i class="bx bx-layer"></i>
               </div>
+              <h4><a href="">TRAININGS</a></h4>
+              <a href="portfolio-detail6.html" data-gallery="portfolioGallery" class="portfolio-lightbox"><i
+                  class="bx bx-plus"></i></a>
             </div>
+          </div>
         </div>
       </div>
     </section><!-- End Portfolio Section -->
@@ -188,37 +238,24 @@
           <h2>Contact</h2>
         </div>
 
-        <div class="row mt-1">
-
+        <div class="row">
           <div class="col">
-            <div class="info">
-
-              <div class="email">
                 <h4>Email:</h4>
                 <p>office@multi-s.com</p>
-              </div>
-
-              <div class="phone">
+            
                 <h4>Call:</h4>
                 <p>+996 700 106 272</p>
-              </div>
-
-            </div>
-
           </div>
+        </div>
+        <div class="copyright">
+          &copy; Copyright <strong><span>Multisystems</span></strong>. All Rights Reserved
+        </div>
       </div>
-      
-      <div class="social-links my-5">
-        <a href="#" class="twitter"><i class="bx bxl-whatsapp"></i></a>  
-      </div>
-      <div class="copyright">
-        &copy; Copyright <strong><span>Multisystems</span></strong>. All Rights Reserved
-      </div>
-    </div>
   </footer><!-- End Footer -->
 
   <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
@@ -233,6 +270,10 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script src="https://unpkg.com/i18nextify@^3.2.1" id="i18nextify" fallbacklng="en"></script>
+    
+  <script src="https://unpkg.com/i18nextify@^3.2.1" id="i18nextify" fallbacklng="ru"></script>
 
 </body>
 
