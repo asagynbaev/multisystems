@@ -12,8 +12,8 @@ i18n
   // модуль инициализации
   .use (initReactI18next)
   .init({
-    fallbackLng: "en",
-    whitelist:["ru", "en", "ky"],
+    fallbackLng: "ru",
+    whitelist:["ru", "en"],
     debug:true,
     detection: {
       order: ["localStorage", "cookie"],
