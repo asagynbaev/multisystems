@@ -1,0 +1,579 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@BermetBakyt 
+BermetBakyt
+/
+multisystems
+Public
+Cannot fork because you own this repository and are not a member of any organizations.
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+design changes
+ dev
+@BermetBakyt
+BermetBakyt committed last week 
+1 parent 6e8397f
+commit bee0194
+Show file tree Hide file tree
+Showing 18 changed files with 681 additions and 1,065 deletions.
+Filter changed files
+ 6  
+Readme.txt
+This file was deleted.
+
+ 574  
+assets/css/style.css
+Large diffs are not rendered by default.
+
+ BIN -1.7 KB 
+assets/img/apple-touch-icon.png
+Binary file not shown.
+ BIN +2.47 KB (620%) 
+assets/img/favicon.png
+
+ BIN -138 KB 
+assets/img/hero-bg.jpg
+Binary file not shown.
+ BIN +15.9 KB 
+assets/img/logo-multisystems.png
+
+ BIN +16.5 KB 
+assets/img/logo-white.png
+
+ BIN +288 KB 
+assets/img/pattern.png
+
+ BIN -33.8 KB 
+assets/img/profile-img.jpg
+Binary file not shown.
+ 27  
+assets/js/index.js
+@@ -0,0 +1,27 @@
+import i18n from 'i18next'
+import Backend from 'i18next-http-backend'
+import LanguageDetector from 'i18next-browser-languagedetector'
+import { initReactI18next } from 'react-i18next'
+
+
+i18n
+  // Подключение бэкенда i18next
+  .use(Backend)
+  // Автоматическое определение языка 
+  .use(LanguageDetector)
+  // модуль инициализации
+  .use (initReactI18next)
+  .init({
+    fallbackLng: "ru",
+    whitelist:["ru", "en", "ky"],
+    debug:true,
+    detection: {
+      order: ["localStorage", "cookie"],
+      caches: ["localStorage", "cookie"],
+    },
+    interpolation: {
+      escapeValue: false
+    },
+})
+
+export default i18n;
+  29  
+assets/js/main.js
+@@ -136,32 +136,16 @@
+  const typed = select('.typed')	  const typed = select('.typed')
+  if (typed) {	  if (typed) {
+    let typed_strings = typed.getAttribute('data-typed-items')	    let typed_strings = typed.getAttribute('data-typed-items')
+    typed_strings = typed_strings.split(',')	    typed_strings = typed_strings.split(' ')
+    new Typed('.typed', {	    new Typed('.typed', {
+      strings: typed_strings,	      strings: typed_strings,
+      loop: true,	      loop: true,
+      typeSpeed: 100,	      typeSpeed: 150,
+      backSpeed: 50,	      backSpeed: 150,
+      backDelay: 2000	      backDelay: 1500
+    });	    });
+  }	  }
+
+
+  /**	
+   * Skills animation	
+   */	
+  let skilsContent = select('.skills-content');	
+  if (skilsContent) {	
+    new Waypoint({	
+      element: skilsContent,	
+      offset: '80%',	
+      handler: function(direction) {	
+        let progress = select('.progress .progress-bar', true);	
+        progress.forEach((el) => {	
+          el.style.width = el.getAttribute('aria-valuenow') + '%'	
+        });	
+      }	
+    })	
+  }	
+
+
+  /**	  /**
+   * Porfolio isotope and filter	   * Porfolio isotope and filter
+@@ -181,10 +165,7 @@
+          el.classList.remove('filter-active');	          el.classList.remove('filter-active');
+        });	        });
+        this.classList.add('filter-active');	        this.classList.add('filter-active');
+
+
+        portfolioIsotope.arrange({	
+          filter: this.getAttribute('data-filter')	
+        });	
+        portfolioIsotope.on('arrangeComplete', function() {	        portfolioIsotope.on('arrangeComplete', function() {
+          AOS.refresh()	          AOS.refresh()
+        });	        });
+ 692  
+index.html
+Large diffs are not rendered by default.
+
+ 71  
+portfolio-detail.html
+@@ -0,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Portfolio Details - Personal Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details portfolio-info" class="portfolio-details text-center">
+
+      <h4>FOOD QUALITY & SAFETY</h4>
+      <ul>
+        <li><i class="bi bi-chevron-right"></i> Assistance to certification of the food quality and safety management systembased on the requirements set forth in ISO, 9001:2015, ISO 22000:2018 or FSSC 22000 (version 5.1).</li>
+        <li><i class="bi bi-chevron-right"></i>Implementation and update of the HACCP system.</li>
+        <li><i class="bi bi-chevron-right"></i>Conducting internal audit.</li>
+        <li><i class="bi bi-chevron-right"></i>Training on food quality and safety matters.</li>
+      </ul>
+      <div class="portfolio-links">
+        <button class="btn btn-secondary">Explore more</button>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
+ 69  
+portfolio-detail2.html
+@@ -0,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Portfolio Details - Personal Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details portfolio-info" class="portfolio-details text-center">
+
+      <h4>FOOD REGULATORY AFFAIRES</h4>
+      <ul>
+        <li><i class="bi bi-chevron-right"></i> 	Разъяснение требований ЕАЭС к пищевой продукции.</li>
+        <li><i class="bi bi-chevron-right"></i>	Идентификация и разъяснение требований к пищевой продукции на целевых экспортных рынках.</li>
+      </ul>
+      <div class="portfolio-links">
+        <button class="btn btn-secondary">Explore more</button>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
+ 70  
+portfolio-detail3.html
+@@ -0,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Portfolio Details - Personal Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details portfolio-info" class="portfolio-details text-center">
+
+      <h4>GOOD DISTRIBUTION PRACTICES IN PHARMACEUTICAL INDUSTRY</h4>
+      <ul>
+        <li><i class="bi bi-chevron-right"></i> Implementation of quality management system in accordance with the requirements of GDP EAEU/EU.</li>
+        <li><i class="bi bi-chevron-right"></i>Assistance in preparation of standard operating procedures (SOP), instructions and records in accordance with the requirements of GDP EAEU/EU.</li>
+        <li><i class="bi bi-chevron-right"></i>Assistance in preparation of standard operating procedures (SOP), instructions and records in accordance with the requirements of GDP EAEU/EU.</li>
+      </ul>
+      <div class="portfolio-links">
+        <button class="btn btn-secondary">Explore more</button>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
+ 66  
+portfolio-detail4.html
+@@ -0,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Portfolio Details - Personal Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details portfolio-info" class="portfolio-details text-center">
+
+      <h4>INTERIM QUALITY EMPLOYEE</h4>
+      <p>Our employee can be deployed both full time and part time to develop and implement procedures and instructions, to coach employees, to conduct internal audit and to guide through external audits and inspections.</p>
+      <div class="portfolio-links">
+        <button class="btn btn-secondary">Explore more</button>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
+ 67  
+portfolio-detail5.html
+@@ -0,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Portfolio Details - Personal Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details portfolio-info" class="text-center portfolio-details">
+
+      <h4>MANAGEMENT SYSTEMS</h4>
+      <p>Multisystems, in other sectors, implements quality management system, environmental management system and occupational health and safety management system.</p>
+      <p>	Assistance to certification of the management system based on the requirements set forth in ISO, 9001:2015, ISO 14001:2015 and ISO 45001:2018.</p>
+      <div class="portfolio-links">
+        <button class="btn btn-secondary">Explore more</button>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
+ 75  
+portfolio-detail6.html
+@@ -0,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Portfolio Details - Personal Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details portfolio-info" class="portfolio-details text-center">
+
+      <h4>Multisystems conducts traditional and online trainings, as well as individual trainings.</h4>
+      <ul>
+        <li><i class="bi bi-chevron-right"></i> International standards ISO: ISO 9001, 14001, 22000 and 45001</li>
+        <li><i class="bi bi-chevron-right"></i>GFSI standards and schemes trainings: FSSC and BRCGS</li>
+        <li><i class="bi bi-chevron-right"></i>Internal auditing</li>
+        <li><i class="bi bi-chevron-right"></i>Food Safety (HACCP)</li>
+        <li><i class="bi bi-chevron-right"></i>Food Fraud (VACCP)</li>
+        <li><i class="bi bi-chevron-right"></i>Food Defense (TACCP)</li>
+        <li><i class="bi bi-chevron-right"></i>Food Safety Culture</li>
+        <li><i class="bi bi-chevron-right"></i>EAEU: Food technical regulations and standards</li>
+      </ul>
+      <div class="portfolio-links">
+        <button class="btn btn-secondary">Explore more</button>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
